@@ -15,6 +15,8 @@ using System.Reflection.Metadata.Ecma335;
 using DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -47,7 +49,7 @@ namespace API.Controllers
 
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(UserRegisterDto request)
+        public async Task<ActionResult<string>> Login(UserRegisterDto request)
         {
             //Check if input contains at least an email or a phone number
             if (request.Email.IsNullOrEmpty() && request.PhoneNumber.IsNullOrEmpty())
@@ -76,8 +78,74 @@ namespace API.Controllers
             }
 
             string token = CreateToken(user);
+            var refreshToken = GenerateRefreshToken();
+            SetRefreshToken(refreshToken);
+            RefreshTokenDto refresh = new RefreshTokenDto()
+            {
+                RefreshToken = refreshToken.Token,
+                TokenCreated = refreshToken.Created,
+                TokenExpires = refreshToken.Expires
+            };
+            await _userService.RefreshUserToken(user.UserID, refresh);
+
+            return Ok(token);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<string>> RefreshToken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+            List<User> users = await _userService.GetAll();
+            User user = users.FirstOrDefault(u => u.RefreshToken == refreshToken);
+
+            if (user == null)
+            {
+                return Unauthorized("Invalid Refresh Token.");
+            }
+            else if (user.TokenExpires < DateTime.Now.ToUniversalTime())
+            {
+                return Unauthorized("Token expired.");
+            }
+
+            string token = CreateToken(user);
+            var newToken = GenerateRefreshToken();
+            SetRefreshToken(newToken);
+            RefreshTokenDto refresh = new RefreshTokenDto()
+            {
+                RefreshToken = newToken.Token,
+                TokenCreated = newToken.Created,
+                TokenExpires = newToken.Expires
+            };
+            await _userService.RefreshUserToken(user.UserID, refresh);
+
             return Ok(token);
 
+        }
+
+        private RefreshToken GenerateRefreshToken() 
+        {
+            var refreshToken = new RefreshToken
+            {
+                Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
+                Expires = DateTime.Now.AddMinutes(30),
+                Created = DateTime.Now
+            };
+
+            return refreshToken;
+        }
+
+        private void SetRefreshToken(RefreshToken newRefreshToken)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = newRefreshToken.Expires
+            };
+
+            Response.Cookies.Append("refreshToken", newRefreshToken.Token, cookieOptions);
+            user.RefreshToken = newRefreshToken.Token;
+            user.TokenCreated = newRefreshToken.Created;
+            user.TokenExpires = newRefreshToken.Expires;
         }
 
         private string CreateToken(User user)
@@ -91,7 +159,7 @@ namespace API.Controllers
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims:claims,
-                expires:DateTime.Now.AddDays(1),
+                expires:DateTime.Now.AddMinutes(30),
                 signingCredentials:credentials
                 );
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);

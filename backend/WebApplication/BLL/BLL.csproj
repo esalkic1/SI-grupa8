@@ -16,7 +16,6 @@
     <Folder Include="Services\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Mapper\" />
-    <Folder Include="DTOs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />

@@ -2,6 +2,7 @@
 using DAL.Entities;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Update.Internal;
 
 namespace DAL.Repositories
 {
@@ -25,6 +26,12 @@ namespace DAL.Repositories
             return await _context.Users.ToListAsync();
         }
 
+        public async Task<User> GetById(int id)
+        {
+            return await _context.Users.FindAsync(id);
+        }
+
+   
     }
 }
 

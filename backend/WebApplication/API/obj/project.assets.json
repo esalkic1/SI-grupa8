@@ -3250,19 +3250,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asmir\\.nuget\\packages\\": {}
+    "C:\\Users\\sljivo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Asmir\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\API\\obj\\",
+      "projectPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\sljivo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Asmir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sljivo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3276,11 +3276,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\BLL\\BLL.csproj"
+            "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\BLL\\BLL.csproj"
             },
-            "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj"
+            "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj"
             }
           }
         }

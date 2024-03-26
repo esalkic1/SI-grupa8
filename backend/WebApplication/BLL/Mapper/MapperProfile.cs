@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using DAL.Entities;
 
 namespace BLL.Mapper
 {
@@ -9,6 +10,7 @@ namespace BLL.Mapper
 		{
 			CreateMap<DAL.Entities.User, DTOs.UserDto>().ReverseMap();
             CreateMap<DAL.Entities.Role, DTOs.RoleDto>().ReverseMap();
+            CreateMap<DAL.Entities.RefreshToken, DTOs.RefreshTokenDto>().ReverseMap();
         }
 	}
 }

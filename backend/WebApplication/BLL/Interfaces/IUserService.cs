@@ -7,6 +7,7 @@ namespace BLL.Interfaces
 	{
         Task<UserDto> AddUser(UserRegisterDto userRegisterDto);
         Task<List<User>> GetAll();
+        Task RefreshUserToken(int userID, RefreshTokenDto refreshTokenDto);
     }
 }
 

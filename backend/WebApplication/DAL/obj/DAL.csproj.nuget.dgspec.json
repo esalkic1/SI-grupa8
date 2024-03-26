@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj": {}
+    "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj": {
+    "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Asmir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asmir\\source\\repos\\SI-grupa8\\backend\\WebApplication\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\sljivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sljivo\\Desktop\\REPOS\\Sprint_2\\backend\\WebApplication\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asmir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sljivo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
