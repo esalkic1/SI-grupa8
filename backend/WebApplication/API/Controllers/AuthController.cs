@@ -23,12 +23,13 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {
         public static User user =new User();
-        private readonly AppDbContext _context;
+        private readonly IConfiguration _config;
 
         IUserService _userService;
-         public AuthController(IUserService userService)
+         public AuthController(IConfiguration config,IUserService userService)
          {
              _userService = userService;
+            _config=config;
          }
         
 
@@ -83,10 +84,10 @@ namespace API.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, user.Name)
+                new Claim(ClaimTypes.Email, user.Email)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("my top secret key is currently very long"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value!));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims:claims,
